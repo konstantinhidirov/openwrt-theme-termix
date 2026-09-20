@@ -1,11 +1,11 @@
 /* Termix-inspired LuCI skin. Bootstrap CSS supplies widget coverage. */
 :root[data-darkmode="true"] {
   color-scheme: dark;
-  --background-color-high:#181916; --background-color-medium:#20211e; --background-color-low:#282925;
-  --border-color-high:#4a4b45; --border-color-medium:#393a35; --border-color-low:#30312d;
+  --background-color-high:#171a1e; --background-color-medium:#1c2024; --background-color-low:#23272b;
+  --border-color-high:#444b51; --border-color-medium:#353b40; --border-color-low:#2b3136;
   --text-color-highest:#fafafa; --text-color-high:#ededeb; --text-color-medium:#b5b6b0; --text-color-low:#858680;
-  --termix-canvas:#181916; --termix-shell:#20211e; --termix-panel:#252622; --termix-raised:#2c2d29;
-  --termix-control:#20211e; --termix-hover:#343530; --termix-heading:#fafafa; --termix-row-label:#fafafa;
+  --termix-canvas:#171a1e; --termix-shell:#1c2024; --termix-panel:#23272b; --termix-raised:#2a2f33;
+  --termix-control:#1b1f23; --termix-hover:#33383d; --termix-heading:#fafafa; --termix-row-label:#fafafa;
   --termix-muted:#b5b6b0; --termix-shadow:#0009;
   --success-color-high:#84b99b; --error-color-high:#d77878; --warn-color-high:#d6ab6c;
   --font-sans:Consolas,"Cascadia Code","DejaVu Sans Mono",ui-monospace,monospace;
@@ -239,6 +239,7 @@ body:has(.termix-login-brand) .modal.login button.important { width:calc(100% - 
   #maincontent .control-group:has(> .cbi-input-password) { display:flex; align-items:stretch; gap:0; width:100%; max-width:100%; }
   #maincontent .control-group:has(> .cbi-input-password) > .cbi-button { display:grid; flex:none; place-items:center; width:34px; min-width:34px; height:34px; min-height:34px; margin:0!important; padding:0!important; }
   #cbi-json-password .cbi-value { padding-bottom:0; border-bottom:0; }
+  body:has(.termix-login-brand) .modal.login .cbi-value { padding-bottom:0; border-bottom:0; }
   header .nav > li.dropdown > .dropdown-menu,
   header .nav > li.dropdown:hover > .dropdown-menu { margin-top:8px; }
   body:is([data-page="admin-status-overview"],[data-page=""]) .cbi-progressbar { margin-top:calc(1lh + 8px); }
@@ -325,3 +326,13 @@ header .nav .dropdown-menu li a:hover,header .nav .dropdown-menu li.termix-curre
 :root[data-darkmode="false"] .cbi-value-field input[type="checkbox"]::after { background:#a1a19d; }
 :root[data-darkmode="false"] .cbi-value-field input[type="checkbox"]:checked::after { background:var(--on-primary-color); }
 :root[data-darkmode="false"] body:has(.termix-login-brand) .modal.login button.important { color:var(--on-primary-color); }
+
+/* Keep dark tab bars and selected tabs in the cool surface palette. */
+:root[data-darkmode="true"] .tabs,
+:root[data-darkmode="true"] .cbi-tabmenu { background:#1d2227; }
+:root[data-darkmode="true"] .tabs > li.active,
+:root[data-darkmode="true"] .cbi-tabmenu > li.cbi-tab { background:#303840; }
+:root[data-darkmode="true"] .tabs > li:hover,
+:root[data-darkmode="true"] .cbi-tabmenu > li:hover { background:#2b3238!important; }
+:root[data-darkmode="true"] .tabs > li.active:hover,
+:root[data-darkmode="true"] .cbi-tabmenu > li.cbi-tab:hover { background:#303840!important; }
