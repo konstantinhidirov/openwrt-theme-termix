@@ -14,8 +14,9 @@ LuCI combinations have not yet been tested.
 
 ## Install
 
-Download the APK for your OpenWrt release from the [Releases page](https://github.com/konstantinhidirov/openwrt-theme-termix/releases) and
-install it on the router:
+Once a release is published, download the APK for your OpenWrt release from
+the [Releases page](https://github.com/konstantinhidirov/openwrt-theme-termix/releases)
+and install it on the router:
 
 ```sh
 apk add --allow-untrusted ./luci-theme-termix-*.apk
