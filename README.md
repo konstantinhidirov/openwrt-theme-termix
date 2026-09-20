@@ -10,11 +10,11 @@ Termix code or assets.
 
 ### Dark mode
 
-![Termix theme in dark mode on the LuCI Overview page](docs/screenshots/dark.png)
+![Termix theme in dark mode on the LuCI Overview page](docs/screenshots/overview-dark.png)
 
 ### Light mode
 
-![Termix theme in light mode on the LuCI Overview page](docs/screenshots/light.png)
+![Termix theme in light mode on the LuCI Overview page](docs/screenshots/overview-light.png)
 
 ## Compatibility
 
