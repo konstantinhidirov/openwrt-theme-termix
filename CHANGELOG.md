@@ -1,8 +1,11 @@
 # Changelog
 
-## 0.1.0 — initial package
+## Unreleased
 
-- Added the dark, Termix-inspired LuCI layout and responsive sidebar.
+- Added the Termix-inspired LuCI layout and responsive sidebar.
+- Added dark, light, and system color modes with twelve accent presets and a custom HEX accent.
+- Moved appearance settings into a dedicated LuCI page backed by UCI.
+- Shifted the dark palette to neutral surfaces and brightened overview row labels.
 - Packaged the theme for OpenWrt 25.12 as a LuCI APK.
 - Registered the theme without changing the active LuCI style during installation.
 - Added an uninstall fallback to Bootstrap if Termix was the active style.

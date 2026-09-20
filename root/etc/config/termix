@@ -1,0 +1,3 @@
+config theme 'settings'
+	option mode 'dark'
+	option accent 'orange'

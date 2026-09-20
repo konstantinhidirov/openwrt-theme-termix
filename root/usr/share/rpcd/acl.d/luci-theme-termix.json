@@ -1,0 +1,7 @@
+{
+  "luci-theme-termix": {
+    "description": "Grant access to Termix theme settings",
+    "read": { "uci": ["termix"] },
+    "write": { "uci": ["termix"] }
+  }
+}

@@ -1,9 +1,10 @@
 # Termix-inspired LuCI theme
 
-A dark, responsive LuCI theme with a terminal-inspired palette and a sidebar
-layout. This is an independent community project inspired by the appearance of
-Termix. It is not affiliated with Termix, and it contains no Termix code or
-assets.
+A responsive LuCI theme with a terminal-inspired palette and a sidebar layout.
+It offers dark, light, and system color modes, twelve accent presets, and a
+custom HEX accent. This is an independent community project inspired by the
+appearance of Termix. It is not affiliated with Termix, and it contains no
+Termix code or assets.
 
 ## Compatibility
 
@@ -42,6 +43,13 @@ uci commit luci
 These commands change only the LuCI appearance. They do not change networking
 or services.
 
+## Appearance settings
+
+Open **System → Termix Theme** to choose a color mode and accent. Select
+**Custom** to enter a `#RRGGBB` color. Apply the changes and reload the page.
+The theme starts in dark mode with an orange accent. Settings are stored in
+`/etc/config/termix` and apply to the LuCI interface on this device.
+
 ## Build an APK
 
 Use the OpenWrt SDK matching the target release and platform. Place this
@@ -64,6 +72,8 @@ the Git repository holds the source.
 - `htdocs/luci-static/termix/` contains CSS, JavaScript, and image assets.
 - `ucode/template/themes/termix/` contains the LuCI templates.
 - `root/etc/uci-defaults/` registers the theme after installation.
+- `root/etc/config/termix` contains the default appearance settings.
+- `root/usr/share/luci/menu.d/` and `root/usr/share/rpcd/acl.d/` register the settings page and its permissions.
 - `baseline/` contains original upstream Bootstrap files for comparison.
 - `KNOWN_ISSUES.md` tracks follow-up UI fixes.
 

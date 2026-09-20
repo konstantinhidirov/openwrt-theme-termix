@@ -4,3 +4,6 @@
 *.ut text eol=lf
 Makefile text eol=lf
 root/etc/uci-defaults/* text eol=lf
+root/etc/config/* text eol=lf
+root/usr/share/luci/menu.d/*.json text eol=lf
+root/usr/share/rpcd/acl.d/*.json text eol=lf

@@ -9,13 +9,24 @@
 	import { getuid, getspnam } from 'luci.core';
 
 	const boardinfo = ubus.call('system', 'board');
-	const darkpref = 'true';
+	const configuredMode = uci.get('termix', 'settings', 'mode');
+	const themeMode = configuredMode == 'light' || configuredMode == 'system' ? configuredMode : 'dark';
+	const darkpref = themeMode == 'system' ? null : (themeMode == 'dark' ? 'true' : 'false');
+	const configuredAccent = uci.get('termix', 'settings', 'accent');
+	const accents = { orange: true, blue: true, green: true, purple: true, pink: true, cyan: true, red: true, yellow: true, teal: true, indigo: true, rose: true, lime: true, custom: true };
+	const accent = accents[configuredAccent] ? configuredAccent : 'orange';
+	const configuredColor = uci.get('termix', 'settings', 'custom_accent') ?? '';
+	const customColor = accent == 'custom' && match(configuredColor, /^#[0-9a-fA-F]{6}$/) ? configuredColor : '#f59145';
+	const red = int(substr(customColor, 1, 2), 16);
+	const green = int(substr(customColor, 3, 2), 16);
+	const blue = int(substr(customColor, 5, 2), 16);
+	const onCustomColor = red * 299 + green * 587 + blue * 114 > 150000 ? '#181916' : '#ffffff';
 
 	http.prepare_content('text/html; charset=UTF-8');
 -%}
 
 <!DOCTYPE html>
-<html lang="{{ dispatcher.lang }}" {{ darkpref ? `data-darkmode="${darkpref}"` : '' }}>
+<html lang="{{ dispatcher.lang }}" data-termix-accent="{{ accent }}" {{ darkpref ? `data-darkmode="${darkpref}"` : '' }} {{ accent == 'custom' ? `style="--primary-color-high:${customColor};--on-primary-color:${onCustomColor}"` : '' }}>
 	<head>
 		<meta charset="utf-8">
 		<title>{{ striptags(`${boardinfo.hostname ?? '?'}${dispatched?.title ? ` | ${_(dispatched.title)}` : ''}`) }}</title>
@@ -33,7 +44,7 @@
 		<meta name="darkreader-lock">
 		<link rel="stylesheet" href="{{ media }}/cascade.css?v=1">
 		<link rel="stylesheet" media="only screen and (max-width: 854px)" href="{{ media }}/mobile.css?v=2" />
-		<link rel="stylesheet" href="{{ media }}/termix.css?v=45">
+		<link rel="stylesheet" href="{{ media }}/termix.css?v=48">
 		<link rel="icon" href="{{ media }}/logo.svg" sizes="any">
 		{% if (node?.css): %}
 		<link rel="stylesheet" href="{{ resource }}/{{ node.css }}">

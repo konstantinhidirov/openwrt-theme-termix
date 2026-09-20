@@ -1,15 +1,43 @@
 /* Termix-inspired LuCI skin. Bootstrap CSS supplies widget coverage. */
-:root, :root[data-darkmode="true"] {
+:root[data-darkmode="true"] {
   color-scheme: dark;
-  --background-color-high:#171613; --background-color-medium:#1c1b18; --background-color-low:#22211e;
-  --border-color-high:#48443d; --border-color-medium:#38352f; --border-color-low:#2d2b27;
-  --text-color-highest:#f3eee7; --text-color-high:#e0dcd5; --text-color-medium:#a6a098; --text-color-low:#77736d;
-  --primary-color-high:#f3934b; --primary-color-medium:#e98540; --primary-color-low:#c86e32; --on-primary-color:#181512;
+  --background-color-high:#181916; --background-color-medium:#20211e; --background-color-low:#282925;
+  --border-color-high:#4a4b45; --border-color-medium:#393a35; --border-color-low:#30312d;
+  --text-color-highest:#fafafa; --text-color-high:#ededeb; --text-color-medium:#b5b6b0; --text-color-low:#858680;
+  --termix-canvas:#181916; --termix-shell:#20211e; --termix-panel:#252622; --termix-raised:#2c2d29;
+  --termix-control:#20211e; --termix-hover:#343530; --termix-heading:#fafafa; --termix-row-label:#fafafa;
+  --termix-muted:#b5b6b0; --termix-shadow:#0009;
   --success-color-high:#84b99b; --error-color-high:#d77878; --warn-color-high:#d6ab6c;
   --font-sans:Consolas,"Cascadia Code","DejaVu Sans Mono",ui-monospace,monospace;
   --font-mono:Consolas,"Cascadia Code","DejaVu Sans Mono",ui-monospace,monospace;
   --termix-side:238px;
 }
+:root[data-darkmode="false"] {
+  color-scheme: light;
+  --background-color-high:#fff; --background-color-medium:#f7f7f7; --background-color-low:#efefef;
+  --border-color-high:#d0d0d0; --border-color-medium:#e1e1e1; --border-color-low:#e9e9e9;
+  --text-color-highest:#252622; --text-color-high:#30312e; --text-color-medium:#63645f; --text-color-low:#777974;
+  --termix-canvas:#fff; --termix-shell:#fafafa; --termix-panel:#fff; --termix-raised:#f3f3f2;
+  --termix-control:#fff; --termix-hover:#ececea; --termix-heading:#252622; --termix-row-label:#252622;
+  --termix-muted:#63645f; --termix-shadow:#0002;
+  --success-color-high:#23734b; --error-color-high:#bb4141; --warn-color-high:#936314;
+  --font-sans:Consolas,"Cascadia Code","DejaVu Sans Mono",ui-monospace,monospace;
+  --font-mono:Consolas,"Cascadia Code","DejaVu Sans Mono",ui-monospace,monospace;
+  --termix-side:238px;
+}
+:root[data-termix-accent] { --primary-color-medium:color-mix(in srgb,var(--primary-color-high) 90%,black); --primary-color-low:color-mix(in srgb,var(--primary-color-high) 75%,black); --on-primary-color:#181916; }
+:root[data-termix-accent="orange"] { --primary-color-high:#f59145; }
+:root[data-termix-accent="blue"] { --primary-color-high:#3b82f6; --on-primary-color:#fff; }
+:root[data-termix-accent="green"] { --primary-color-high:#22c55e; }
+:root[data-termix-accent="purple"] { --primary-color-high:#a855f7; --on-primary-color:#fff; }
+:root[data-termix-accent="pink"] { --primary-color-high:#ec4899; }
+:root[data-termix-accent="cyan"] { --primary-color-high:#06b6d4; }
+:root[data-termix-accent="red"] { --primary-color-high:#ef4444; --on-primary-color:#fff; }
+:root[data-termix-accent="yellow"] { --primary-color-high:#eab308; }
+:root[data-termix-accent="teal"] { --primary-color-high:#14b8a6; }
+:root[data-termix-accent="indigo"] { --primary-color-high:#6366f1; --on-primary-color:#fff; }
+:root[data-termix-accent="rose"] { --primary-color-high:#f43f5e; --on-primary-color:#fff; }
+:root[data-termix-accent="lime"] { --primary-color-high:#84cc16; }
 html { font-size:14px; }
 body { display:block; min-height:100vh; padding:0; background:#151411; color:var(--text-color-high); font-family:var(--font-sans); font-size:14px; line-height:1.5; }
 body, input, select, textarea, button { font-family:var(--font-sans); }
@@ -227,3 +255,73 @@ body:has(.termix-login-brand) .modal.login button.important { width:calc(100% - 
   body:has(.termix-login-brand) #modal_overlay { display:block; width:100%; height:auto; min-height:0; padding:24px; }
   body:has(.termix-login-brand) .modal.login { margin:0 auto; }
 }
+
+/* Shared surfaces and accent. The dark canvas follows Termix's neutral palette. */
+body { background:var(--termix-canvas); }
+body:not(:has(.termix-login-brand)) > header,
+.termix-brand { background:var(--termix-shell); }
+.termix-topbar,body > footer { background:var(--termix-shell); }
+.cbi-section,.cbi-tblsection,.network-status-table > .ifacebox,.ifacebox,
+.table .td,table td,.modal,#modal_overlay > .modal { background:var(--termix-panel); }
+.cbi-rowstyle-2,.tr.table-titles,.tr.cbi-section-table-titles,
+.ifacebox-head,.ifacebox .ifacebox-head[style] { background:var(--termix-raised); }
+.cbi-section-table .tr:hover .td,.cbi-section-table .tr:hover .th,
+.btn:hover,.cbi-button:hover { background:var(--termix-hover); }
+input,textarea,select,.cbi-select,.cbi-dropdown:not(.btn):not(.cbi-button),
+body:not(:has(.termix-login-brand)) textarea { background:var(--termix-control)!important; border-color:var(--border-color-medium)!important; color:var(--text-color-high); }
+input:focus,textarea:focus,select:focus,.cbi-dropdown:focus { border-color:var(--primary-color-high)!important; box-shadow:0 0 0 2px color-mix(in srgb,var(--primary-color-high) 18%,transparent)!important; }
+h1,h2,h3,h4,h5,h6,legend,.termix-brand { color:var(--termix-heading); }
+.cbi-value label.cbi-value-title,
+body:is([data-page="admin-status-overview"],[data-page=""]) .cbi-section .tr > .td:first-child { color:var(--termix-row-label); }
+header .nav > li > a { color:var(--termix-muted); }
+header .nav .dropdown-menu li a { color:var(--text-color-medium); }
+header .nav .dropdown-menu li a:hover,header .nav .dropdown-menu li.termix-current a,
+.label,header [data-indicator],#indicators [data-indicator] { color:var(--primary-color-high); }
+.btn.primary,.cbi-button-action.important,.cbi-page-actions .cbi-button-apply,
+.cbi-section-actions .cbi-button-edit,.cbi-button-positive.important,
+body:has(.termix-login-brand) .modal.login::before,
+body:has(.termix-login-brand) .modal.login button.important { color:var(--on-primary-color); }
+a:hover,#termix-menu-toggle:hover,#termix-menu-close:hover { color:var(--primary-color-high); }
+.btn.primary:hover,.cbi-button-action.important:hover,.cbi-page-actions .cbi-button-apply:hover { background:color-mix(in srgb,var(--primary-color-high) 82%,white); }
+.termix-brand-icon { border-color:color-mix(in srgb,var(--primary-color-high) 35%,var(--border-color-medium)); background:color-mix(in srgb,var(--primary-color-high) 10%,var(--termix-shell)); }
+.tabs > li.active,.cbi-tabmenu > li.cbi-tab,
+header .nav .dropdown-menu li a:hover,header .nav .dropdown-menu li.termix-current a { background:color-mix(in srgb,var(--primary-color-high) 10%,var(--termix-panel)); }
+#indicators [data-indicator],.label,header [data-indicator] { border-color:color-mix(in srgb,var(--primary-color-high) 32%,var(--border-color-medium)); background:color-mix(in srgb,var(--primary-color-high) 10%,var(--termix-panel)); }
+#indicators [data-indicator][data-style="active"] { background:var(--primary-color-high); color:var(--on-primary-color); }
+#termix-menu-toggle,#termix-menu-close { border-color:var(--border-color-medium); background:var(--termix-raised); }
+#termix-menu-toggle:hover,#termix-menu-close:hover { background:var(--termix-hover); }
+.actions,.cbi-page-actions { background:var(--termix-raised); }
+.btn,.cbi-button,.item::after { background:var(--termix-raised); border-color:var(--border-color-high); color:var(--text-color-high); }
+.btn:hover,.cbi-button:hover { border-color:var(--primary-color-high); color:var(--text-color-highest); }
+.table .th,table th { color:var(--text-color-medium); }
+.termix-login-brand { border-color:var(--border-color-medium); background-color:var(--termix-shell); background-image:radial-gradient(var(--border-color-high) 0.7px,transparent 0.7px); }
+.termix-login-brand strong,body:has(.termix-login-brand) .modal.login h4 { color:var(--termix-heading); }
+.termix-login-brand span,body:has(.termix-login-brand) .modal.login .cbi-value-title { color:var(--text-color-medium); }
+
+/* Light mode keeps the same spacing and layout, replacing warm dark fills. */
+:root[data-darkmode="false"] body { color:var(--text-color-high); }
+:root[data-darkmode="false"] header .nav > li > a { color:var(--text-color-medium); }
+:root[data-darkmode="false"] header .nav .dropdown-menu li a:hover,
+:root[data-darkmode="false"] header .nav .dropdown-menu li.termix-current a { color:var(--primary-color-low); }
+:root[data-darkmode="false"] .tabs,:root[data-darkmode="false"] .cbi-tabmenu { background:var(--termix-shell); }
+:root[data-darkmode="false"] .tabs > li:hover,:root[data-darkmode="false"] .cbi-tabmenu > li:hover { background:var(--termix-hover)!important; }
+:root[data-darkmode="false"] .cbi-button-negative,:root[data-darkmode="false"] .cbi-button-reset,
+:root[data-darkmode="false"] .cbi-button-remove,:root[data-darkmode="false"] .cbi-button-delete { background:#fff0f0; border-color:#e6b7b7; color:#a83535; }
+:root[data-darkmode="false"] .cbi-button.cbi-button-save,
+:root[data-darkmode="false"] .cbi-page-actions .cbi-button.cbi-button-save { background:#e9f7ed; border-color:#73af87; color:#286743; }
+:root[data-darkmode="false"] .cbi-button.cbi-button-save:hover,
+:root[data-darkmode="false"] .cbi-page-actions .cbi-button.cbi-button-save:hover { background:#d9f0e1; border-color:#4e9869; color:#1f5738; }
+:root[data-darkmode="false"] .label.success { background:#eaf7ed; border-color:#a5d2af; color:#286743; }
+:root[data-darkmode="false"] .label.warning { background:#fff7e9; border-color:#dfc790; color:#805400; }
+:root[data-darkmode="false"] .label.error,:root[data-darkmode="false"] .label.important { background:#fff0f0; border-color:#e6b7b7; color:#a83535; }
+:root[data-darkmode="false"] .modal,:root[data-darkmode="false"] #modal_overlay > .modal { border-color:var(--border-color-high); border-top-color:var(--primary-color-high); box-shadow:0 20px 70px var(--termix-shadow); }
+:root[data-darkmode="false"] #modal_overlay { background:#0006; }
+:root[data-darkmode="false"] .alert-message.info { background:#eef5ff; border-color:#bbd0eb; color:#30557e; }
+:root[data-darkmode="false"] .alert-message.warning { background:#fff7e9; border-color:#dfc790; color:#805400; }
+:root[data-darkmode="false"] .alert-message.error { background:#fff0f0; border-color:#e6b7b7; color:#a83535; }
+:root[data-darkmode="false"] .cbi-value-description { color:var(--text-color-low); }
+:root[data-darkmode="false"] input[type="checkbox"]::before,:root[data-darkmode="false"] input[type="radio"]::before { background:#fff; border-color:var(--border-color-high); }
+:root[data-darkmode="false"] input[type="checkbox"]:checked::after,:root[data-darkmode="false"] input[type="radio"]:checked::after { background:var(--on-primary-color); }
+:root[data-darkmode="false"] .cbi-value-field input[type="checkbox"]::after { background:#a1a19d; }
+:root[data-darkmode="false"] .cbi-value-field input[type="checkbox"]:checked::after { background:var(--on-primary-color); }
+:root[data-darkmode="false"] body:has(.termix-login-brand) .modal.login button.important { color:var(--on-primary-color); }

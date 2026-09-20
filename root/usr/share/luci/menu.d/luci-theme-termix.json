@@ -1,0 +1,13 @@
+{
+  "admin/system/termix": {
+    "title": "Termix Theme",
+    "order": 101,
+    "action": {
+      "type": "view",
+      "path": "termix/settings"
+    },
+    "depends": {
+      "acl": ["luci-theme-termix"]
+    }
+  }
+}
