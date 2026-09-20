@@ -6,6 +6,16 @@ custom HEX accent. This is an independent community project inspired by the
 appearance of Termix. It is not affiliated with Termix, and it contains no
 Termix code or assets.
 
+## Screenshots
+
+### Dark mode
+
+![Termix theme in dark mode on the LuCI Overview page](docs/screenshots/dark.png)
+
+### Light mode
+
+![Termix theme in light mode on the LuCI Overview page](docs/screenshots/light.png)
+
 ## Compatibility
 
 The theme was developed and tested with OpenWrt 25.12.5 and LuCI
