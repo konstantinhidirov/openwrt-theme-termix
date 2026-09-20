@@ -1,0 +1,13 @@
+Termix-inspired LuCI theme
+Copyright 2026 Konstantin Hidirov
+
+This project includes files derived from the OpenWrt LuCI Bootstrap theme.
+Those files are licensed under the Apache License, Version 2.0, by the OpenWrt
+LuCI contributors. The original versions used during development are retained
+in baseline/ for comparison.
+
+The theme's custom styles, scripts, and template modifications are also
+licensed under the Apache License, Version 2.0.
+
+Termix served as a visual design reference. This project is not affiliated
+with Termix and does not include Termix source code or assets.

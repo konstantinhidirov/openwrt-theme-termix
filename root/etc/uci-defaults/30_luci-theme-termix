@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Register the theme without changing the user's current selection.
+if ! uci -q get luci.themes.Termix >/dev/null 2>&1; then
+	uci set luci.themes.Termix='/luci-static/termix'
+	uci commit luci
+fi
+
+exit 0

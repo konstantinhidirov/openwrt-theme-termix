@@ -1,0 +1,6 @@
+* text=auto
+*.css text eol=lf
+*.js text eol=lf
+*.ut text eol=lf
+Makefile text eol=lf
+root/etc/uci-defaults/* text eol=lf
