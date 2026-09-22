@@ -11,7 +11,7 @@ LUCI_DESCRIPTION:=A responsive, terminal-inspired LuCI theme with a sidebar layo
 LUCI_DEPENDS:=+luci-base
 LUCI_PKGARCH:=all
 LUCI_MAINTAINER:=Termix theme contributors
-LUCI_URL:=https://github.com/konstantinhidirov/openwrt-theme-termix
+LUCI_URL:=https://github.com/konstantinhidirov/luci-theme-termix
 
 # Keep the shipped CSS and JavaScript readable.
 LUCI_MINIFY_CSS:=0
